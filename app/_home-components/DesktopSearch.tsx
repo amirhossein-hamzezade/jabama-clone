@@ -30,8 +30,8 @@ export default function DesktopSearch() {
 
   return (
     <>
-      <section className="relative z-10 w-full flex justify-center items-center  mt-[50px]">
-        <div className="relative h-[82px] w-[732px] flex justify-between items-center bg-white rounded-full">
+      <section className="relative z-10 w-full flex justify-center items-center  mt-12.5">
+        <div className="relative h-20.5 w-183 flex justify-between items-center bg-white rounded-full">
           <div
             tabIndex={0}
             className="flex flex-col justify-center items-start px-5 focus:border focus:border-red-400 h-full rounded-tr-full rounded-br-full focus:outline-none"
@@ -39,8 +39,8 @@ export default function DesktopSearch() {
               setDropDownObj({
                 top: "top-25",
                 right: "right-30",
-                width: "w-[100px]",
-                height: "h-[100px]",
+                width: "w-[330px]",
+                height: "h-[286px]",
               })
             }
           >
@@ -76,7 +76,7 @@ export default function DesktopSearch() {
           </div>
 
           <div className="flex justify-center items-cente px-4">
-            <div className="h-[50px] w-[50px] flex justify-center items-center rounded-full bg-black cursor-pointer">
+            <div className="h-12.5 w-12.5 flex justify-center items-center rounded-full bg-black cursor-pointer">
               <Search color="white" />
             </div>
           </div>
@@ -108,7 +108,7 @@ type DropDownMenuProps =
 export function DropDownMenu({ top, right, width, height }: DropDownMenuProps) {
   return (
     <div
-      className={`absolute z-10 ${width} ${height} ${top} ${right}  bg-blue-300 duration-300 transition-all`}
+      className={`absolute z-20 ${width} ${height} ${top} ${right}  bg-blue-300 duration-300 transition-all`}
     ></div>
   );
 }
