@@ -1,13 +1,13 @@
-import BannerSlider from "@/components/BannerSlider";
-import Nav from "@/components/Nav";
-import Categorize from "@/components/Categorize";
+import BannerSlider from "@/app/_home-components/BannerSlider";
+import Nav from "@/app/_home-components/Nav";
+import Categorize from "@/app/_home-components/Categorize";
 
-import PostSlider from "@/components/PostSlider";
+import PostSlider from "@/app/_home-components/PostSlider";
 
-import HomeHeader from "@/components/HomeHeader";
-import ExpandableDescription from "@/components/ExpandableDescription";
-import DesktopHeader from "@/components/DesktopHeader";
-import DesktopSearch from "@/components/DesktopSearch";
+import HomeHeader from "@/app/_home-components/HomeHeader";
+import ExpandableDescription from "@/app/_home-components/ExpandableDescription";
+import DesktopHeader from "@/app/_home-components/DesktopHeader";
+import DesktopSearch from "@/app/_home-components/DesktopSearch";
 
 export default function Home() {
   return (

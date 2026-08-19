@@ -3,7 +3,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
-import Card, { CardProps } from "@/components/Card";
+import Card, { CardProps } from "@/app/_home-components/Card";
 import "swiper/css";
 import "swiper/css/free-mode";
 import { cn } from "@/lib/utils";
