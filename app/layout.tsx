@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
-import { Vazirmatn } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import MobileNavMenu from "@/components/MobileNavMenu";
 
-const vazirFont = Vazirmatn({
-  subsets: ["arabic", "latin"],
+const vazirFont = localFont({
+  src: [
+    {
+      path: "../public/fonts/Vazirmatn-FD-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Vazirmatn-FD-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-vazir",
-  weight: ["300", "400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl" className={`${vazirFont.variable} antialiased`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans w-full h-full">
+        <div className="w-full h-full flex flex-col">
+          {children} <MobileNavMenu />
+        </div>
+      </body>
     </html>
   );
 }

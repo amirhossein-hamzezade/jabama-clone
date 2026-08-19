@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --swiper-pagination-bullet-width: 6px;
+  --swiper-pagination-bullet-height: 6px;
+  --swiper-pagination-bullet-horizontal-gap: 2px;
 }
 
 @theme inline {
@@ -10,6 +13,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-vazir), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
+
+  --color-nav-label: rgb(86, 38, 217);
+  --color-nav-label-foreground: rgb(255, 255, 255);
+  --color-foreground-muted: var(--color-gray-400);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,5 +26,8 @@
   }
 }
 
-body {
+.swiper .swiper-pagination-bullet-active {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  opacity: 1 !important;
 }
