@@ -40,7 +40,7 @@ export default function DesktopSearch() {
         <div className="relative h-20.5 w-183 flex justify-between items-center bg-white rounded-full">
           <div
             tabIndex={0}
-            className="flex flex-col justify-center items-start px-5 focus:border focus:border-red-400 h-full rounded-tr-full rounded-br-full focus:outline-none"
+            className="flex flex-col justify-center items-start px-5 focus:border  h-full rounded-tr-full rounded-br-full focus:outline-none"
             onClick={() =>
               setDropDownObj({
                 top: "top-25",

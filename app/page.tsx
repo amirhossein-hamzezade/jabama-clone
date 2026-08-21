@@ -15,7 +15,7 @@ import PopularDestinations from "./_home-components/PopularDestinations";
 
 export default function Home() {
   return (
-    <main className="relative w-full min-h-screen flex flex-col items-center pb-16">
+    <main className="relative w-full min-h-screen flex flex-col items-center pb-16 ">
       <Image
         width={2550}
         height={106}
@@ -42,9 +42,9 @@ export default function Home() {
           </h1>
         </div>
         <HomeHeader />
-        <div className="w-full flex flex-col  items-center gap-4">
+        <div className="w-full flex flex-col  items-center gap-4 ">
           <BannerSlider className="lg:hidden mb-4" />
-          <div className="w-full lg:w-208.5 lg:h-61 lg:-mt-25 lg:z-9 bg-white lg:flex lg:justify-center lg:items-center lg:rounded-xl lg:shadow-lg">
+          <div className="w-full lg:w-208.5 2xl:w-full 2xl:max-w-350 2xl:h-[130px] lg:h-61 lg:-mt-25 lg:z-9 bg-white lg:flex lg:justify-center lg:items-center lg:rounded-xl lg:shadow-lg">
             <Nav />
           </div>
           <Categorize className="lg:hidden" />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import MobileNavMenu from "@/app/_home-components/MobileNavMenu";
+import { Footer } from "./components/Footer/Footer";
 
 const vazirFont = localFont({
   src: [
@@ -32,8 +33,10 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={`${vazirFont.variable} antialiased`}>
       <body className="font-sans w-full h-full">
-        <div className="w-full h-full flex flex-col">
-          {children} <MobileNavMenu />
+        <div className="w-full h-full flex flex-col items-center">
+          {children}
+          <Footer />
+          <MobileNavMenu />
         </div>
       </body>
     </html>
