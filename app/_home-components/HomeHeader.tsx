@@ -11,7 +11,7 @@ export default function HomeHeader() {
     <>
       <MobileHeader />
 
-      <div className="sticky top-0 z-30 w-full bg-white pt-2 lg:hidden">
+      <div className="sticky top-0 z-30 px-[16px] w-full bg-white pt-2 lg:hidden">
         <SearchMobile onTrigger={() => setSheetOpen(true)} />
       </div>
 

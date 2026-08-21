@@ -47,7 +47,7 @@ export default function Categorize({ className }: CategorizeProps) {
     <section
       className={`flex flex-col justify-center  py-4 border-b-8 border-gray-100 ${className}`}
     >
-      <h2 className="font-bold">انتخاب بر اساس ویژگی</h2>
+      <h2 className="font-bold px-[12px]">انتخاب بر اساس ویژگی</h2>
       <div className="w-full py-4">
         <Swiper
           modules={[FreeMode]}

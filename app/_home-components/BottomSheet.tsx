@@ -50,7 +50,7 @@ export default function BottomSheet({
             animate={{ y: 0 }} // Slides up into full view
             exit={{ y: "100%" }} // Slides back down out of view before unmounting
             transition={{ type: "spring", damping: 25, stiffness: 220 }} // Premium mobile spring physics
-            className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[24px] z-50 p-6 pb-10 shadow-2xl border-t border-gray-100 md:hidden flex flex-col"
+            className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl z-50 p-6 pb-10 shadow-2xl border-t border-gray-100 md:hidden flex flex-col"
             style={{
               height: height,
               borderRadius:

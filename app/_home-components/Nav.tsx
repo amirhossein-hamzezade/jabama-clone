@@ -78,7 +78,7 @@ const navItems: navItemsProp[] = [
 
 export default function Nav() {
   return (
-    <nav className="w-full flex flex-wrap  justify-center gap-2  lg:items-center lg:gap-3">
+    <nav className="w-full flex flex-wrap  justify-center gap-x-5 gap-y-3 lg:items-center lg:gap-3 px-[16px]">
       {navItems.map((item, i) => {
         return (
           <NavItem
@@ -95,7 +95,7 @@ export default function Nav() {
 }
 export function NavItem({ logo, title, path, label }: navItemsProp) {
   return (
-    <div className="relative flex flex-col justify-center items-center border border-gray-200 rounded-lg h-19 w-19 text-[12px] hover:cursor-pointer lg:h-22 lg:w-22">
+    <div className="relative flex flex-col justify-center items-center border border-gray-200 rounded-lg h-21 w-21 text-[12px] hover:cursor-pointer lg:h-22 lg:w-22">
       {label?.title && (
         <div
           className={cn(

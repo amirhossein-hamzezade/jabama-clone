@@ -23,7 +23,7 @@ export default function PageWithStickyElement() {
             As you scroll through this white section, the green bar stays at the
             top.
           </p>
-          <div className="h-[100vh] bg-gray-100 rounded-lg flex items-center justify-center">
+          <div className="h-screen bg-gray-100 rounded-lg flex items-center justify-center">
             <span>Scroll back up to watch it return to its original home!</span>
           </div>
         </div>

@@ -41,7 +41,7 @@ export default function Home() {
           </h1>
         </div>
         <HomeHeader />
-        <div className="w-full p-4 flex flex-col lg:max-w-350 items-center gap-4">
+        <div className="w-full flex flex-col  items-center gap-4">
           <BannerSlider className="lg:hidden mb-4" />
           <div className="w-full lg:w-208.5 lg:h-61 lg:-mt-25 lg:z-9 bg-white lg:flex lg:justify-center lg:items-center lg:rounded-xl lg:shadow-lg">
             <Nav />
@@ -56,6 +56,7 @@ export default function Home() {
             sectionTitle="اقامت بلندمدت با تخفیف"
             subTitle=" اقامت طولانی‌تر با قیمت به‌صرفه‌تر"
             postSliderCards={postSliderCardsLarge}
+            bgColor="orange"
           />
           <PostSlider
             variant="large"
