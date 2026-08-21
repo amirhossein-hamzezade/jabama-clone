@@ -11,6 +11,7 @@ import DesktopSearch from "@/app/_home-components/DesktopSearch";
 import { postSliderCardsSmall } from "@/data/postSliderCards-small";
 import { postSliderCardsLarge } from "@/data/postSliderCards-large";
 import Image from "next/image";
+import PopularDestinations from "./_home-components/PopularDestinations";
 
 export default function Home() {
   return (
@@ -83,6 +84,7 @@ export default function Home() {
             postSliderCards={postSliderCardsSmall}
           />
           <ExpandableDescription />
+          <PopularDestinations />
         </div>
       </div>
     </main>

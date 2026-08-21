@@ -94,7 +94,7 @@ export default function PostSlider({
             <>
               <div className="w-fit flex flex-col justify-between items-start gap-2">
                 <h2
-                  className={cn("font-bold lg:px-[12px] px-[30px]", {
+                  className={cn("font-bold lg:px-[20px] px-[30px]", {
                     "lg:text-2xl": bgColor === "orange",
                   })}
                 >
@@ -102,7 +102,7 @@ export default function PostSlider({
                 </h2>
                 <p
                   className={cn(
-                    "text-gray-500 text-[12.25px] lg:px-[12px] px-[30px]",
+                    "text-gray-500 text-[12.25px] lg:px-[20px] px-[30px]",
                     {
                       "lg:text-xl lg:text-[rgb(33,55,67)] lg:font-bold":
                         bgColor === "orange",
@@ -118,7 +118,7 @@ export default function PostSlider({
             </>
           )}
           {variant === "small" && (
-            <h2 className="font-bold lg:text-[1.31rem] lg:px-[5px] px-[25px]">
+            <h2 className="font-bold lg:text-[1.31rem] lg:px-[20px] px-[25px]">
               {sectionTitle}
             </h2>
           )}

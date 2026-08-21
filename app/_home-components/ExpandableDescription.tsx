@@ -6,8 +6,8 @@ import React, { useState } from "react";
 export default function ExpandableDescription() {
   const [open, setOpen] = useState(false);
   return (
-    <section className="w-full flex flex-col justify-center items-center gap-4 px-[20px]">
-      <h2 className="font-bold">
+    <section className="w-full flex flex-col justify-center items-center gap-4 px-[20px] max-w-350">
+      <h2 className="font-bold w-full">
         اجاره ویلا، سوئیت، آپارتمان، کلبه، بومگردی و انواع اقامتگاه در شمال و
         سراسر ایران از جاباما
       </h2>
