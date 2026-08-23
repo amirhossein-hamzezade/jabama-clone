@@ -11,6 +11,7 @@ export default function DesktopSearch() {
     "setSearchDestination"
   > | null>(null);
   const [searchDestination, setSearchDestination] = useState("");
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   const [isSticky, setIsSticky] = useState(false);
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -34,15 +35,31 @@ export default function DesktopSearch() {
     return () => observer.disconnect();
   }, []);
 
+  const handleSearchDropDownOpen = (obj: DropDownState) => {
+    setDropDownObj(obj);
+    setIsDropDownOpen(true);
+  };
+
+  const handleSearchDropDownClose = () => {
+    setDropDownObj(null);
+    setIsDropDownOpen(false);
+  };
+
   return (
     <>
-      <section className="relative z-10 w-full flex justify-center items-center  mt-12.5">
+      {isDropDownOpen && (
+        <div
+          className="fixed w-full h-full z-20"
+          onClick={handleSearchDropDownClose}
+        ></div>
+      )}
+      <section className="relative z-20 w-full flex justify-center items-center  mt-12.5">
         <div className="relative h-20.5 w-183 flex justify-between items-center bg-white rounded-full">
           <div
             tabIndex={0}
             className="flex flex-col justify-center items-start px-5 focus:border  h-full rounded-tr-full rounded-br-full focus:outline-none"
             onClick={() =>
-              setDropDownObj({
+              handleSearchDropDownOpen({
                 top: "top-25",
                 right: "right-[-40]",
                 width: "w-[330px]",
@@ -62,7 +79,7 @@ export default function DesktopSearch() {
           <div
             className="flex flex-col justify-center items-start"
             onClick={() =>
-              setDropDownObj({
+              handleSearchDropDownOpen({
                 top: "top-25",
                 right: "right-60",
                 width: "w-[300px]",
@@ -88,6 +105,7 @@ export default function DesktopSearch() {
               <Search color="white" />
             </div>
           </div>
+
           {dropDownObj && (
             <DropDownMenu
               {...dropDownObj}
@@ -130,8 +148,6 @@ export function DropDownMenu({
   state,
   setSearchDestination,
 }: DropDownMenuProps) {
-  if (state === "destination") {
-  }
   return (
     <div
       className={`absolute z-20 ${width} ${height} ${top} ${right}  bg-white border border-gray-200 duration-300 rounded-lg transition-all`}
