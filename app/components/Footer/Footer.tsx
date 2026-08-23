@@ -1,10 +1,8 @@
 import React from "react";
 import { FooterSection } from "./FooterSection";
-import JabamaLogo from "./logos/JabamaLogo";
-import LinkedInIcon from "./logos/LinkedinIcon";
-import TwitterIcon from "./logos/TwitterIcon";
-import InstagramIcon from "./logos/InstagramIcon";
+
 import { DownlaodAppSection } from "./DownlaodAppSection";
+import { SocialAppLinkSection } from "./SocialAppLinkSection";
 
 export type footerLinks = {
   header: string;
@@ -51,32 +49,7 @@ export const Footer = () => {
           <FooterSection {...footerLinksData[0]} />
           <FooterSection {...footerLinksData[1]} />
           <FooterSection {...footerLinksData[2]} />
-          <section className="w-full flex flex-col items-center gap-4 ">
-            <JabamaLogo className="" />
-            <span className="text-sm font-semibold text-[#171717]">
-              جاباما را در شبکه‌های اجتماعی دنبال کنید:
-            </span>
-            <div className="flex flex-wrap justify-between gap-2">
-              <a
-                href=""
-                className="h-10 w-10 flex justify-center items-center bg-[#E6E6E6] rounded-lg"
-              >
-                <LinkedInIcon />
-              </a>
-              <a
-                href=""
-                className="h-10 w-10 flex justify-center items-center bg-[#E6E6E6] rounded-lg"
-              >
-                <TwitterIcon />
-              </a>
-              <a
-                href=""
-                className="h-10 w-10 flex justify-center items-center bg-[#E6E6E6] rounded-lg"
-              >
-                <InstagramIcon />
-              </a>
-            </div>
-          </section>
+          <SocialAppLinkSection />
         </nav>
         <DownlaodAppSection />
       </section>
