@@ -7,7 +7,7 @@ import PostSlider from "@/app/_home-components/PostSlider";
 import HomeHeader from "@/app/_home-components/HomeHeader";
 import ExpandableDescription from "@/app/_home-components/ExpandableDescription";
 import DesktopHeader from "@/app/_home-components/DesktopHeader";
-import DesktopSearch from "@/app/_home-components/DesktopSearch";
+import DesktopSearch from "@/app/_home-components/_desktop-search-comp/DesktopSearch";
 import { postSliderCardsSmall } from "@/data/postSliderCards-small";
 import { postSliderCardsLarge } from "@/data/postSliderCards-large";
 import Image from "next/image";

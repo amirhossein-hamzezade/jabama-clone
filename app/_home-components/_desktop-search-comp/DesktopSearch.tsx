@@ -1,7 +1,12 @@
 "use client";
 
-import { Info, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
+import {
+  DesktopSearchDropdown,
+  DropDownMenuProps,
+  DropDownState,
+} from "./DesktopSearchDropdown ";
 
 export default function DesktopSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -81,7 +86,7 @@ export default function DesktopSearch() {
             onClick={() =>
               handleSearchDropDownOpen({
                 top: "top-25",
-                right: "right-60",
+                right: "0",
                 width: "w-[300px]",
                 height: "h-[100px]",
                 state: "enter-date",
@@ -107,7 +112,7 @@ export default function DesktopSearch() {
           </div>
 
           {dropDownObj && (
-            <DropDownMenu
+            <DesktopSearchDropdown
               {...dropDownObj}
               setSearchDestination={setSearchDestination}
             />
@@ -124,57 +129,5 @@ export default function DesktopSearch() {
         }`}
       ></div>
     </>
-  );
-}
-
-type DropDownState = {
-  top: string;
-  right: string;
-  width: string;
-  height: string;
-  state: "destination" | "enter-date" | "exit-date";
-};
-
-// 2. Define exactly what the component receives as Props
-interface DropDownMenuProps extends DropDownState {
-  setSearchDestination: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export function DropDownMenu({
-  top,
-  right,
-  width,
-  height,
-  state,
-  setSearchDestination,
-}: DropDownMenuProps) {
-  return (
-    <div
-      className={`absolute z-20 ${width} ${height} ${top} ${right}  bg-white border border-gray-200 duration-300 rounded-lg transition-all`}
-    >
-      {state === "destination" && (
-        <div className="flex flex-col gap-6 items-center w-full h-full p-3 rounded-lg">
-          <div className="flex justify-center w-full gap-1">
-            <Info className="" />
-            <span className="text-sm text-gray-500">
-              می‌توانید شهر، استان، محله، جاذبه، نام و یا دسته‌بندی اقامتگاه را
-              جست‌وجو کنید.
-            </span>
-          </div>
-          <div className="flex flex-col w-full">
-            <h2 className="text-sm text-gray-600 font-bold">
-              محبوب‌ترین مقصدها
-            </h2>
-            <ul className="flex flex-wrap">
-              <li>
-                <button onClick={() => setSearchDestination("تهران")}>
-                  تهران
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      )}
-    </div>
   );
 }

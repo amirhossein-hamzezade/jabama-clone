@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import MobileNavMenu from "@/app/_home-components/MobileNavMenu";
-import { Footer } from "./components/Footer/Footer";
+import { Footer } from "@/components/Footer/Footer";
 
 const vazirFont = localFont({
   src: [
