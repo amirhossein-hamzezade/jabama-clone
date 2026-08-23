@@ -37,7 +37,7 @@ export default function Card(props: CardProps) {
             width={130}
             height={130}
             alt=""
-            className="w-full h-[135] rounded-tr-lg rounded-tl-lg lg:h-50.5 lg:w-42.25"
+            className="w-full h-[135] rounded-lg lg:h-50.5 lg:w-42.25"
           />
           <span className="font-bold text-sm lg:text-[1rem]">
             {city}،
@@ -55,7 +55,10 @@ export default function Card(props: CardProps) {
             width={100}
             height={100}
             alt=""
-            className="w-full h-full rounded-tr-lg rounded-tl-lg aspect-3/2"
+            className={cn("w-full h-full  aspect-3/2 rounded-xl", {
+              "lg:rounded-tr-lg lg:rounded-tl-lg lg:rounded-bl-none lg:rounded-br-none":
+                bgColor === "orange",
+            })}
           />
           <div
             className={cn("flex justify-start items-center gap-1", {

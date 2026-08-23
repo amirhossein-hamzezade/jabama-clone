@@ -59,7 +59,7 @@ export default function BottomSheet({
           >
             {/* Visual Drag Handle Line */}
             <div
-              className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-6 cursor-pointer shrink-0"
+              className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mt-15 cursor-pointer shrink-0"
               onClick={onClose}
             />
 

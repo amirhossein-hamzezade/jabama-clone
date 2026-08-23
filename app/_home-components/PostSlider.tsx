@@ -112,7 +112,7 @@ export default function PostSlider({
                   {subTitle}
                 </p>
               </div>
-              <button className="border border-gray-300 py-2 px-2 text-[12.25px] rounded-lg font-bold">
+              <button className="border border-gray-300 py-2 px-2 text-[12.25px] rounded-lg font-bold ml-[20px]">
                 مشاهده همه
               </button>
             </>

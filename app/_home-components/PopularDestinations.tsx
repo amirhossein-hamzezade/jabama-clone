@@ -27,9 +27,7 @@ const LinkTagData: LinkTag[] = [
   { title: "اجاره ویلا در کیش", link: "" },
 ];
 
-type PopularDestinationsprops = LinkTag[];
-
-const PopularDestinations = (props: LinkTag[]) => {
+const PopularDestinations = () => {
   return (
     <div className="flex w-full px-[20px] pb-[24px] flex-col gap-[16px] max-w-350">
       <h2 className="font-semibold text-[rgb(33,55,67)]">
