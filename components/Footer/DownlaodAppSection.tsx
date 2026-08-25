@@ -34,7 +34,7 @@ export const DownlaodAppSection = () => {
         </div>
 
         <ul
-          className="grid grid-cols-2 place-items-center gap-4 lg:grid-flow-col lg:grid-cols-none lg:grid-rows-1 mr-auto
+          className="grid grid-cols-2 place-items-center gap-4 lg:grid-flow-col lg:grid-cols-none lg:grid-rows-1 lg:mr-auto
             "
         >
           <li className=" w-full h-[56px]  lg:h-[40px]">

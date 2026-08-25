@@ -2,7 +2,7 @@ import { Info } from "lucide-react";
 import { SetStateAction } from "react";
 import { DestinationDropDown } from "./DestinationDropDown";
 import { cn } from "@/lib/utils";
-
+import CalendarContainer from "@/components/Calender/CalenderContainer";
 export type DropDownState = {
   top: string;
   right: string;
@@ -27,12 +27,12 @@ export function DesktopSearchDropdown({
   return (
     <div
       className={cn(
-        `absolute z-20 ${width} ${height} ${top} ${right}  bg-white border border-gray-200 duration-300 rounded-lg transition-all`,
-        { "w-full": state === "enter-date" },
+        `absolute z-20 ${width} ${height} ${top} ${right}  bg-white border border-gray-200 duration-300 rounded-lg transition-all h-fit`,
+        { "w-full h-[438px]": state === "enter-date" },
       )}
     >
       {state === "destination" && <DestinationDropDown />}
-      {state === "enter-date" && <div></div>}
+      {state === "enter-date" && <CalendarContainer />}
     </div>
   );
 }
