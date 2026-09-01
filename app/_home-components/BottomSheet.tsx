@@ -9,6 +9,7 @@ type BottomSheetProps = {
   onClose: () => void;
   children?: React.ReactNode;
   height?: string;
+  roundedTop?: boolean;
 };
 
 export default function BottomSheet({
@@ -16,6 +17,7 @@ export default function BottomSheet({
   onClose,
   children,
   height = "70vh",
+  roundedTop = true,
 }: BottomSheetProps) {
   // Prevent the background page from scrolling when the sheet is open
   useEffect(() => {
@@ -35,14 +37,14 @@ export default function BottomSheet({
       {isOpen && (
         <>
           {/* 2. BACKDROP OVERLAY */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }} // Smoothly fades out when isOpen becomes false
             transition={{ duration: 0.2 }}
             onClick={onClose}
             className="fixed inset-0 bg-black/40 z-50 md:hidden"
-          />
+          /> */}
 
           {/* 3. THE SLIDING SHEET */}
           <motion.div
@@ -50,23 +52,13 @@ export default function BottomSheet({
             animate={{ y: 0 }} // Slides up into full view
             exit={{ y: "100%" }} // Slides back down out of view before unmounting
             transition={{ type: "spring", damping: 25, stiffness: 220 }} // Premium mobile spring physics
-            className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl z-50 p-6 pb-10 shadow-2xl border-t border-gray-100 md:hidden flex flex-col"
+            className={`fixed bottom-0 rounded ${roundedTop ? "rounded-t-3xl" : "rounded-none"} left-0 right-0 bg-white  z-50 shadow-2xl  md:hidden flex flex-col overflow-y-auto
+            `}
             style={{
               height: height,
-              borderRadius:
-                height === "100vh" || height === "100dvh" ? "0px" : "24px",
             }}
           >
-            {/* Visual Drag Handle Line */}
-            <div
-              className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mt-15 cursor-pointer shrink-0"
-              onClick={onClose}
-            />
-
-            {/* Scrollable Content wrapper */}
-            <div className="flex-1 overflow-y-auto pb-6 text-right" dir="rtl">
-              {children}
-            </div>
+            {children}
           </motion.div>
         </>
       )}

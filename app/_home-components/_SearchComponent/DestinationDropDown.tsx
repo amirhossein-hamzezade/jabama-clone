@@ -1,6 +1,6 @@
 import { Info } from "lucide-react";
-import React from "react";
-import { Tag } from "./DesktopSearchDropdown ";
+
+import { Tag } from "./_desktop-search/DesktopSearchDropdown ";
 
 const cityListData: string[] = [
   "تهران",
@@ -9,10 +9,17 @@ const cityListData: string[] = [
   "چالوس",
   "متل قو (سلمانشهر)",
 ];
+export type DestinationDropDownProps = {
+  className?: string;
+};
 
-export const DestinationDropDown = () => {
+export const DestinationDropDown = ({
+  className,
+}: DestinationDropDownProps) => {
   return (
-    <div className="flex flex-col gap-6 items-center w-full h-full p-3 rounded-lg overflow-y-auto">
+    <div
+      className={`flex flex-col gap-6 items-center w-full h-full rounded-lg overflow-y-auto ${className ? className : "p-3"}`}
+    >
       <div className="flex justify-center w-full gap-1">
         <Info className="" />
         <span className="text-sm text-gray-500">

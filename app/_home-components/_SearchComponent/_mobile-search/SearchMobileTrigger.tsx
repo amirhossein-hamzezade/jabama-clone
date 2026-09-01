@@ -1,10 +1,12 @@
 import { Search } from "lucide-react";
 
-type SearchMobileProps = {
+type SearchMobileTriggerProps = {
   onTrigger?: () => void; // Optional so it doesn't break if used elsewhere without a click action
 };
 
-export default function SearchMobile({ onTrigger }: SearchMobileProps) {
+export default function SearchMobileTrigger({
+  onTrigger,
+}: SearchMobileTriggerProps) {
   return (
     <div className=" w-full flex justify-center items-center py-4">
       <div

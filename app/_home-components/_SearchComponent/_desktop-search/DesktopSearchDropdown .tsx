@@ -1,6 +1,6 @@
 import { Info } from "lucide-react";
 import { SetStateAction } from "react";
-import { DestinationDropDown } from "./DestinationDropDown";
+import { DestinationDropDown } from "../DestinationDropDown";
 import { cn } from "@/lib/utils";
 import CalendarContainer from "@/components/Calender/CalenderContainer";
 export type DropDownState = {

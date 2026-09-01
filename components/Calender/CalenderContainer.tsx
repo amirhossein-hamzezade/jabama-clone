@@ -26,7 +26,7 @@ export default function CalendarContainer() {
             monthControl={{
               value: parentMonth,
 
-              onChange: (nextDate) => setParentMonth(nextDate),
+              onChange: (nextDate) => setParentMonth(subMonths(nextDate, 1)),
             }}
             disableLeftArrow={true}
             rangeControl={{ range, setRange }}

@@ -44,12 +44,14 @@ type CalendarProps = {
   };
   disableLeftArrow?: boolean;
   disableRightArrow?: boolean;
+  headerTag?: boolean;
 };
 export default function Calendar({
   monthControl,
   rangeControl,
   disableLeftArrow,
   disableRightArrow,
+  headerTag,
 }: CalendarProps) {
   const [localMonth, setLocalMonth] = useState<Date>(new Date());
   const currentMonth = monthControl ? monthControl.value : localMonth;
@@ -134,8 +136,11 @@ export default function Calendar({
                 toDay,
               ),
             },
-            { "rounded-full bg-black text-white": isSelected(day) },
-            { "bg-gray-100": isInRange(day) },
+            {
+              "rounded-full bg-black text-white":
+                isSelected(day) && isCurrentMonth,
+            },
+            { "bg-gray-100": isInRange(day) && isCurrentMonth },
           )}
         >
           <button
@@ -147,7 +152,7 @@ export default function Calendar({
               <span className="absolute top-[80%] bg-orange-400 h-1 w-1 rounded-full"></span>
             )}
           </button>
-          {isSelected(day) && (
+          {isSelected(day) && isCurrentMonth && (
             <span
               className={cn(
                 "absolute z-[-1] bg-gray-100 ",
@@ -176,6 +181,7 @@ export default function Calendar({
         setCurrentMonth={handleMonthChange}
         disableLeftArrow={disableLeftArrow}
         disableRightArrow={disableRightArrow}
+        headerTag={headerTag}
       />
       <div className="w-full h-full flex flex-col">
         <div className=" text-gray-600 w-full grid grid-cols-[repeat(7,1fr)] place-items-center border-gray-300 border-b-2">
