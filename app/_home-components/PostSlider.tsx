@@ -102,7 +102,7 @@ export default function PostSlider({
                 </h2>
                 <p
                   className={cn(
-                    "text-gray-500 text-[12.25px] lg:px-[20px] px-[30px]",
+                    "text-gray-500 text-[15.68px] lg:px-[20px] px-[30px]",
                     {
                       "lg:text-xl lg:text-[rgb(33,55,67)] lg:font-bold":
                         bgColor === "orange",

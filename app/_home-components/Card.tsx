@@ -1,3 +1,4 @@
+import { formatPrice } from "@/lib/utility";
 import { cn } from "@/lib/utils";
 import { Star } from "lucide-react";
 import Image from "next/image";
@@ -20,6 +21,7 @@ type LargeVariantProps = CommonProps & {
   title: string;
   star: number;
   roomCount?: number;
+  price?: number;
 };
 
 export type CardProps = SmallVariantCard | LargeVariantProps;
@@ -47,13 +49,14 @@ export default function Card(props: CardProps) {
       );
     }
     case "large": {
-      const { src, title, roomCount } = props as LargeVariantProps;
+      const { src, title, roomCount, price } = props as LargeVariantProps;
       return (
         <div className="min-w-[233.75]  w-[60vw] lg:w-64 flex flex-col gap-2 rounded-lg bg-white">
           <Image
             src={src}
             width={100}
             height={100}
+            unoptimized
             alt=""
             className={cn("w-full h-full  aspect-3/2 rounded-xl", {
               "lg:rounded-tr-lg lg:rounded-tl-lg lg:rounded-bl-none lg:rounded-br-none":
@@ -70,7 +73,7 @@ export default function Card(props: CardProps) {
             <span className="mt-1 text-gray-500">(۳۸ دیدگاه)</span>
           </div>
           <h2
-            className={cn("font-bold text-lg", {
+            className={cn("font-bold text-lg truncate ", {
               "px-3": bgColor === "orange",
             })}
           >
@@ -85,7 +88,9 @@ export default function Card(props: CardProps) {
               استان مازندران، سوادکوه {roomCount && ` . ${roomCount} اتاق`}
             </span>
             <div className={cn("flex", { "py-4": bgColor === "orange" })}>
-              <span className="font-bold">1٬600٬000 تومان</span>
+              <span className="font-bold">
+                {price ? formatPrice(price) : ""} تومان
+              </span>
               <span className="text-gray-400">/&nbsp;هرشب</span>
             </div>
           </div>

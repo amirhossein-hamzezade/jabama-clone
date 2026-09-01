@@ -9,7 +9,11 @@ import ExpandableDescription from "@/app/_home-components/ExpandableDescription"
 import DesktopHeader from "@/app/_home-components/DesktopHeader";
 import DesktopSearch from "@/app/_home-components/_SearchComponent/_desktop-search/DesktopSearch";
 import { postSliderCardsSmall } from "@/data/postSliderCards-small";
-import { postSliderCardsLarge } from "@/data/postSliderCards-large";
+import {
+  postSliderCardsLarge,
+  postSliderCardsLarge1,
+  postSliderCardsLarge2,
+} from "@/data/postSliderCards-large";
 import Image from "next/image";
 import PopularDestinations from "./_home-components/PopularDestinations";
 
@@ -54,16 +58,16 @@ export default function Home() {
           />
           <PostSlider
             variant="large"
-            sectionTitle="اقامت بلندمدت با تخفیف"
-            subTitle=" اقامت طولانی‌تر با قیمت به‌صرفه‌تر"
-            postSliderCards={postSliderCardsLarge}
+            sectionTitle="قیمت منصفانه"
+            subTitle="قیمت متناسب با میزان بازدید، تقاضا و امکانات"
+            postSliderCards={postSliderCardsLarge1}
             bgColor="orange"
           />
           <PostSlider
             variant="large"
-            sectionTitle="اقامت بلندمدت با تخفیف"
-            subTitle=" اقامت طولانی‌تر با قیمت به‌صرفه‌تر"
-            postSliderCards={postSliderCardsLarge}
+            sectionTitle="آخر هفته تو استخر"
+            subTitle="بهترین ویلاهای استخردار نزدیک تهران"
+            postSliderCards={postSliderCardsLarge2}
           />
           <PostSlider
             variant="large"
