@@ -16,6 +16,7 @@ import {
 } from "@/data/postSliderCards-large";
 import Image from "next/image";
 import PopularDestinations from "./_home-components/PopularDestinations";
+import { DesktopSearchContainer } from "./_home-components/_SearchComponent/_desktop-search/DesktopSearchContainer";
 
 export default function Home() {
   return (
@@ -39,7 +40,8 @@ export default function Home() {
             />
           </div>
           <DesktopHeader />
-          <DesktopSearch />
+          {/* <DesktopSearch /> */}
+          <DesktopSearchContainer />
 
           <h1 className="z-5 text-white text-lg mb-42.5 mt-15">
             اجاره ویلا، سوئیت و انواع اقامتگاه در سراسر ایران

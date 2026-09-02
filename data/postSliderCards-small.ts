@@ -79,5 +79,3 @@ export const postSliderCardsSmall: CardProps[] = [
     variant: "small",
   },
 ];
-
-export const postSliderCardsSmall1: CardProps[] = [];

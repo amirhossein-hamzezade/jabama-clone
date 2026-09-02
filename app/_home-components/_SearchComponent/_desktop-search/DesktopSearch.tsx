@@ -1,25 +1,19 @@
 "use client";
 
 import { Search } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
-import {
-  DesktopSearchDropdown,
-  DropDownMenuProps,
-  DropDownState,
-} from "./DesktopSearchDropdown ";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { DesktopSearchDropdown } from "./DesktopSearchDropdown ";
+import { SearchContext } from "@/app/context/SearchContext";
 
 export default function DesktopSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const [dropDownObj, setDropDownObj] = useState<Omit<
-    DropDownMenuProps,
-    "setSearchDestination"
-  > | null>(null);
-  const [searchDestination, setSearchDestination] = useState("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   const [isSticky, setIsSticky] = useState(false);
   const triggerRef = useRef<HTMLDivElement>(null);
+
+  const { searchState, setSearchState } = useContext(SearchContext);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,22 +34,19 @@ export default function DesktopSearch() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSearchDropDownOpen = (obj: DropDownState) => {
-    setDropDownObj(obj);
-    setIsDropDownOpen(true);
+  const handleOpenSection = (section: typeof searchState.activeSection) => {
+    setSearchState((prev) => ({ ...prev, activeSection: section }));
   };
 
-  const handleSearchDropDownClose = () => {
-    setDropDownObj(null);
-    setIsDropDownOpen(false);
+  const handleCloseAll = () => {
+    setSearchState((prev) => ({ ...prev, activeSection: null }));
   };
-
   return (
     <>
       {isDropDownOpen && (
         <div
           className="fixed w-full h-full z-20"
-          onClick={handleSearchDropDownClose}
+          onClick={handleCloseAll}
         ></div>
       )}
       <section className="relative z-20 w-full flex justify-center items-center  mt-12.5">
@@ -63,15 +54,9 @@ export default function DesktopSearch() {
           <div
             tabIndex={0}
             className="flex flex-col justify-center items-start px-5 focus:border  h-full rounded-tr-full rounded-br-full focus:outline-none"
-            onClick={() =>
-              handleSearchDropDownOpen({
-                top: "top-25",
-                right: "right-[-40]",
-                width: "w-[330px]",
-                height: "h-[286px]",
-                state: "destination",
-              })
-            }
+            onClick={() => {
+              handleOpenSection("destination");
+            }}
           >
             <span className="">مقصد سفرت کجاست؟</span>
             <input
@@ -79,19 +64,20 @@ export default function DesktopSearch() {
               ref={inputRef}
               type="text"
               placeholder="جستجو مقصد سفر"
+              value={searchState.destination}
+              onChange={(e) => {
+                setSearchState((prev) => ({
+                  ...prev,
+                  destination: e.target.value,
+                }));
+              }}
             />
           </div>
           <div
             className="flex flex-col justify-center items-start"
-            onClick={() =>
-              handleSearchDropDownOpen({
-                top: "top-25",
-                right: "0",
-                width: "w-[300px]",
-                height: "h-[100px]",
-                state: "enter-date",
-              })
-            }
+            onClick={() => {
+              handleOpenSection("enter-date");
+            }}
           >
             <span className="text-sm">تاریخ ورود</span>
             <span className="text-gray-500 text-sm">انتخاب تاریخ</span>
@@ -111,12 +97,7 @@ export default function DesktopSearch() {
             </div>
           </div>
 
-          {dropDownObj && (
-            <DesktopSearchDropdown
-              {...dropDownObj}
-              setSearchDestination={setSearchDestination}
-            />
-          )}
+          <DesktopSearchDropdown />
         </div>
       </section>
       {/* sticky element logic */}
