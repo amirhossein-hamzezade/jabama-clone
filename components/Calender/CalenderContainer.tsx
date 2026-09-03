@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { ToggleBtn } from "./ToggleBtn";
 import Calendar, { DateRange } from "./Calendar";
 import { addMonths, subMonths } from "date-fns-jalali";
+import { SearchContext } from "@/app/context/SearchContext";
 
 export default function CalendarContainer() {
   const [parentMonth, setParentMonth] = useState<Date>(new Date());
 
-  const [range, setRange] = useState<DateRange>({
-    start: null,
-    end: null,
-  });
+  const { searchState, setSearchState } = useContext(SearchContext);
+
+  const range = searchState.range;
 
   const nextMonthView = addMonths(parentMonth, 1);
   return (
@@ -29,7 +29,7 @@ export default function CalendarContainer() {
               onChange: (nextDate) => setParentMonth(subMonths(nextDate, 1)),
             }}
             disableLeftArrow={true}
-            rangeControl={{ range, setRange }}
+            rangeControl={{ range, setSearchState }}
           />
           {/* ----------------- cla2 */}
           <Calendar
@@ -39,7 +39,7 @@ export default function CalendarContainer() {
               onChange: (nextDate) => setParentMonth(nextDate),
             }}
             disableRightArrow={true}
-            rangeControl={{ range, setRange }}
+            rangeControl={{ range, setSearchState }}
           />
         </div>
       </div>

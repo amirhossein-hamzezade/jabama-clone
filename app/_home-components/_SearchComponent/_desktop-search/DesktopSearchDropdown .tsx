@@ -4,6 +4,7 @@ import { DestinationDropDown } from "../DestinationDropDown";
 import { cn } from "@/lib/utils";
 import CalendarContainer from "@/components/Calender/CalenderContainer";
 import { SearchContext } from "@/app/context/SearchContext";
+import { GuestCounter } from "../_component/GuestCounter";
 
 // 2. Define exactly what the component receives as Props
 
@@ -20,21 +21,27 @@ export function DesktopSearchDropdown() {
           "top-25 right-[-40] w-[330px] h-[330px]":
             activeSection === "destination",
         },
-        { "w-full h-[438px] top-25  ": activeSection === "enter-date" },
+        {
+          "w-full h-[438px] top-25":
+            activeSection === "enter-date" || activeSection === "exit-date",
+        },
+        { "w-[300px] h-[78px] top-25 left-0  ": activeSection === "gusts" },
       )}
     >
       {activeSection === "destination" && <DestinationDropDown />}
-      {activeSection === "enter-date" && <CalendarContainer />}
+      {(activeSection === "enter-date" || activeSection === "exit-date") && (
+        <CalendarContainer />
+      )}
+      {activeSection === "gusts" && <GuestCounter />}
     </div>
   );
 }
 
 export type TagProps = {
   cityName: string;
-  setSearchDestination?: (value: SetStateAction<string>) => void;
 };
 
-export const Tag = ({ cityName, setSearchDestination }: TagProps) => {
+export const Tag = ({ cityName }: TagProps) => {
   const { setSearchState } = useContext(SearchContext);
   return (
     <li className="flex justify-center items-center rounded-full px-4 py-2 h-8 border border-gray-400 hover:bg-gray-100">

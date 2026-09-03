@@ -4,6 +4,8 @@ import { Search } from "lucide-react";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { DesktopSearchDropdown } from "./DesktopSearchDropdown ";
 import { SearchContext } from "@/app/context/SearchContext";
+import { format } from "date-fns-jalali";
+import { cn } from "@/lib/utils";
 
 export default function DesktopSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -14,6 +16,7 @@ export default function DesktopSearch() {
   const triggerRef = useRef<HTMLDivElement>(null);
 
   const { searchState, setSearchState } = useContext(SearchContext);
+  const { range } = searchState;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,10 +39,16 @@ export default function DesktopSearch() {
 
   const handleOpenSection = (section: typeof searchState.activeSection) => {
     setSearchState((prev) => ({ ...prev, activeSection: section }));
+    setIsDropDownOpen(true);
   };
 
   const handleCloseAll = () => {
     setSearchState((prev) => ({ ...prev, activeSection: null }));
+    setIsDropDownOpen(false);
+  };
+
+  const formattedPersianDate = (day: Date) => {
+    return format(day, "d MMMM");
   };
   return (
     <>
@@ -74,21 +83,53 @@ export default function DesktopSearch() {
             />
           </div>
           <div
-            className="flex flex-col justify-center items-start"
+            className="flex flex-col justify-center items-start gap-2"
             onClick={() => {
               handleOpenSection("enter-date");
             }}
           >
             <span className="text-sm">تاریخ ورود</span>
-            <span className="text-gray-500 text-sm">انتخاب تاریخ</span>
+            <span
+              className={cn("text-sm text-gray-500", {
+                "text-black": range?.start,
+              })}
+            >
+              {range?.start
+                ? formattedPersianDate(range.start)
+                : "انتخاب تاریخ"}
+            </span>
           </div>
-          <div className="flex flex-col justify-center items-center">
+          <div
+            className="flex flex-col justify-center items-center gap-2"
+            onClick={() => {
+              handleOpenSection("exit-date");
+            }}
+          >
             <span className="text-sm">تاریخ خروج</span>
-            <span className="text-sm text-gray-500">انتخاب تاریخ</span>
+            <span
+              className={cn("text-sm text-gray-500", {
+                "text-black": range?.end,
+              })}
+            >
+              {range?.end ? formattedPersianDate(range.end) : "انتخاب تاریخ"}
+            </span>
           </div>
-          <div className="flex flex-col justify-center items-center">
-            <span className="text-sm">تعداد نفرات</span>
-            <span className="text-sm text-gray-500">انتخاب تعداد نفرات</span>
+          <div
+            onClick={() => {
+              handleOpenSection("gusts");
+            }}
+            className="flex flex-col justify-center items-center w-[106px] gap-2"
+          >
+            <span className="w-[108px] text-nowrap text-sm">تعداد نفرات</span>
+            <span
+              className={cn("w-[106px] text-sm text-gray-500", {
+                "text-black": searchState.gusts > 0,
+              })}
+            >
+              {searchState.gusts === 0
+                ? "انتخاب تعداد نفرات"
+                : `${searchState.gusts} نفر`}
+            </span>
           </div>
 
           <div className="flex justify-center items-cente px-4">

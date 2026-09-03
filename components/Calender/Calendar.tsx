@@ -23,6 +23,7 @@ import { ToggleBtn } from "./ToggleBtn";
 import { cn } from "@/lib/utils";
 import { CalendarHeader } from "./CalendarHeader";
 import { span } from "framer-motion/client";
+import { SearchState } from "@/app/context/SearchContext";
 
 // Jalali week days starting from Saturday (Shanbeh)
 const WEEK_DAYS = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
@@ -40,7 +41,7 @@ type CalendarProps = {
   monthControl?: MonthControl;
   rangeControl?: {
     range: DateRange;
-    setRange: React.Dispatch<React.SetStateAction<DateRange>>;
+    setSearchState: React.Dispatch<React.SetStateAction<SearchState>>;
   };
   disableLeftArrow?: boolean;
   disableRightArrow?: boolean;
@@ -61,13 +62,22 @@ export default function Calendar({
     end: null,
   });
 
-  const updateRange = (
-    nextRange: DateRange | ((prev: DateRange) => DateRange),
-  ) => {
+  const updateRange = (nextRangeFields: Partial<DateRange>) => {
     if (rangeControl) {
-      rangeControl.setRange(nextRange);
+      // Safely update the nested state inside the search context wrapper
+      rangeControl.setSearchState((prev) => ({
+        ...prev,
+        range: {
+          ...prev.range,
+          ...nextRangeFields,
+        },
+      }));
     } else {
-      setLocalRange(nextRange);
+      // Local state fallback logic
+      setLocalRange((prev) => ({
+        ...prev,
+        ...nextRangeFields,
+      }));
     }
   };
 
@@ -97,7 +107,7 @@ export default function Calendar({
 
   const handleDayClick = (day: Date) => {
     // Prevent selecting past dates
-    console.log("cl");
+
     if (isBefore(day, startOfMonth(new Date())) && !isToday(day)) return;
 
     if (!range.start || (range.start && range.end)) {
