@@ -1,15 +1,14 @@
 import { ArrowRight, CircleX } from "lucide-react";
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { DestinationDropDown } from "../DestinationDropDown";
+import { SearchContext } from "@/app/context/SearchContext";
 
 type MobileSearchInputProps = {
   setSheetOpen: (isOpen: boolean) => void;
   setDestination: (destination: string) => void;
 };
-export const MobileSearchInput = ({
-  setSheetOpen,
-  setDestination,
-}: MobileSearchInputProps) => {
+export const MobileSearchInput = ({ setSheetOpen }: MobileSearchInputProps) => {
+  const { setSearchState } = useContext(SearchContext);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClear = () => {
@@ -24,7 +23,12 @@ export const MobileSearchInput = ({
       const finalValue = inputRef.current.value.trim();
 
       if (finalValue) {
-        setDestination(finalValue); // 2. Pass the text to your prop function
+        setSearchState((prev) => ({
+          ...prev,
+          destination: finalValue,
+          activeSection: "enter-date",
+        }));
+        // 2. Pass the text to your prop function
         inputRef.current.blur(); // 3. Optional: Dismisses mobile keyboard automatically
       }
     }

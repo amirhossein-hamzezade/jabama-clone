@@ -22,7 +22,7 @@ export function DesktopSearchDropdown() {
             activeSection === "destination",
         },
         {
-          "w-full h-[438px] top-25":
+          "w-full h-[460px] top-25":
             activeSection === "enter-date" || activeSection === "exit-date",
         },
         { "w-[300px] h-[78px] top-25 left-0  ": activeSection === "gusts" },

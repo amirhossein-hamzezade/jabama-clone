@@ -1,4 +1,6 @@
+import { SearchContext } from "@/app/context/SearchContext";
 import { Search } from "lucide-react";
+import { useContext } from "react";
 
 type SearchMobileTriggerProps = {
   onTrigger?: () => void; // Optional so it doesn't break if used elsewhere without a click action
@@ -7,11 +9,21 @@ type SearchMobileTriggerProps = {
 export default function SearchMobileTrigger({
   onTrigger,
 }: SearchMobileTriggerProps) {
+  const { setSearchState } = useContext(SearchContext);
+
   return (
     <div className=" w-full flex justify-center items-center py-4">
       <div
         className="w-full flex justify-start gap-2 px-4 py-1  items-center rounded-full shadow-sm cursor-pointer"
-        onClick={onTrigger}
+        onClick={() => {
+          if (onTrigger) {
+            onTrigger();
+            setSearchState((prev) => ({
+              ...prev,
+              activeSection: "destination",
+            }));
+          }
+        }}
       >
         <Search />
         <div className="flex flex-col">

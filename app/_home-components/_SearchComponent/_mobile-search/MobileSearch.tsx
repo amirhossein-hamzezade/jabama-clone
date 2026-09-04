@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import BottomSheet from "../../BottomSheet";
 import { MobileSearchInput } from "./MobileSearchInput";
 import { ArrowRight } from "lucide-react";
 import { ToggleBtn } from "@/components/Calender/ToggleBtn";
 import Calendar from "@/components/Calender/Calendar";
 import { MobileCalendarContainer } from "./MobileCalendarContainer";
+import { SearchContext } from "@/app/context/SearchContext";
 
 type MobileSearchProps = {
   sheetOpen: boolean;
@@ -17,6 +18,8 @@ export const MobileSearch = ({
 }: MobileSearchProps) => {
   const [destination, setDestination] = useState("");
   const [dateObj, setDateObj] = useState();
+  const { searchState, setSearchState } = useContext(SearchContext);
+
   return (
     <>
       <BottomSheet
@@ -26,13 +29,15 @@ export const MobileSearch = ({
         roundedTop={false}
       >
         {/* shows destination page */}
-        {!destination && (
+        {searchState.activeSection === "destination" && (
           <MobileSearchInput
             setSheetOpen={setSheetOpen}
             setDestination={setDestination}
           />
         )}
-        {destination && !dateObj && (
+        {/* shows calender page */}
+        {(searchState.activeSection === "enter-date" ||
+          searchState.activeSection === "exit-date") && (
           <MobileCalendarContainer setSheetOpen={setSheetOpen} />
         )}
       </BottomSheet>

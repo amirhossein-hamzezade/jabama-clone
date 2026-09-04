@@ -1,8 +1,9 @@
+import { SearchContext } from "@/app/context/SearchContext";
 import Calendar, { DateRange } from "@/components/Calender/Calendar";
 import { ToggleBtn } from "@/components/Calender/ToggleBtn";
 import { addMonths, subMonths } from "date-fns-jalali";
 import { ArrowRight } from "lucide-react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 const calendarList = ["calendar1", "calendar2", "calendar3", "calendar3"];
 
 type MobileCalendarContainerProps = {
@@ -14,10 +15,8 @@ export const MobileCalendarContainer = ({
 }: MobileCalendarContainerProps) => {
   const [parentMonth, setParentMonth] = useState<Date>(new Date());
 
-  const [range, setRange] = useState<DateRange>({
-    start: null,
-    end: null,
-  });
+  const { searchState, setSearchState } = useContext(SearchContext);
+  const { range } = searchState;
 
   return (
     <div className="w-full h-full flex flex-col items-center">
@@ -43,7 +42,7 @@ export const MobileCalendarContainer = ({
 
                 onChange: (nextDate) => setParentMonth(subMonths(nextDate, 1)),
               }}
-              rangeControl={{ range, setRange }}
+              rangeControl={{ range, setSearchState }}
             />
           </div>
         );

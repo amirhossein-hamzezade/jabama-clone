@@ -141,17 +141,17 @@ export default function MobileNavMenu() {
   const pathname = usePathname();
   const navItemMenu = [
     { icon: HomeIcon, title: "خانه", path: "/" },
-    { icon: FavoriteIcon, title: "مورد علاقه ها", path: "" },
-    { icon: OrdersIcon, title: "سفر های من", path: "" },
-    { icon: ChatIcon, title: "چت", path: "" },
-    { icon: AccountIcon, title: "حساب من", path: "" },
+    { icon: FavoriteIcon, title: "مورد علاقه ها", path: "/favorite" },
+    { icon: OrdersIcon, title: "سفر های من", path: "#" },
+    { icon: ChatIcon, title: "چت", path: "#" },
+    { icon: AccountIcon, title: "حساب من", path: "#" },
   ];
   return (
     <div className="fixed flex justify-center items-center bottom-0 right-0 h-16 w-full bg-white z-40 lg:hidden">
       {navItemMenu.map((item, i) => {
         return (
           <Link
-            href="#"
+            href={item.path}
             className="flex grow flex-col justify-center items-center text-sm gap-2"
             key={i}
           >
