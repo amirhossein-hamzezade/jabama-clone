@@ -142,9 +142,9 @@ export default function MobileNavMenu() {
   const navItemMenu = [
     { icon: HomeIcon, title: "خانه", path: "/" },
     { icon: FavoriteIcon, title: "مورد علاقه ها", path: "/favorite" },
-    { icon: OrdersIcon, title: "سفر های من", path: "#" },
-    { icon: ChatIcon, title: "چت", path: "#" },
-    { icon: AccountIcon, title: "حساب من", path: "#" },
+    { icon: OrdersIcon, title: "سفر های من", path: "trips" },
+    { icon: ChatIcon, title: "چت", path: "chat" },
+    { icon: AccountIcon, title: "حساب من", path: "profile" },
   ];
   return (
     <div className="fixed flex justify-center items-center bottom-0 right-0 h-16 w-full bg-white z-40 lg:hidden">

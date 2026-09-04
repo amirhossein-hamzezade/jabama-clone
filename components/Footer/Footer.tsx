@@ -43,7 +43,7 @@ const footerLinksData: footerLinks[] = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#f5f5f5] border-t   border-[#ddd] w-full flex flex-col items-center h-auto px-[16px] pt-[24px] pb-[64px] lg:py-[56px]">
+    <footer className="bg-[#f5f5f5] border-t border-[#ddd] w-full flex flex-col items-center h-auto px-[16px] pt-[24px] pb-[64px] lg:py-[56px]">
       <section className="w-full max-w-350 ">
         <nav className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-6 ">
           <FooterSection {...footerLinksData[0]} />

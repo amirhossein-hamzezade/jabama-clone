@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={`${vazirFont.variable} antialiased`}>
       <body className="font-sans w-full h-full">
-        <div className="w-full h-full flex flex-col items-center">
+        <div className="relative w-full h-full flex flex-col items-center">
           {children}
           <Footer />
           <MobileNavMenu />
