@@ -3,6 +3,7 @@
 
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 type BottomSheetProps = {
   isOpen: boolean;
@@ -10,6 +11,7 @@ type BottomSheetProps = {
   children?: React.ReactNode;
   height?: string;
   roundedTop?: boolean;
+  className?: string;
 };
 
 export default function BottomSheet({
@@ -18,6 +20,7 @@ export default function BottomSheet({
   children,
   height = "70vh",
   roundedTop = true,
+  className,
 }: BottomSheetProps) {
   // Prevent the background page from scrolling when the sheet is open
   useEffect(() => {
@@ -52,8 +55,12 @@ export default function BottomSheet({
             animate={{ y: 0 }} // Slides up into full view
             exit={{ y: "100%" }} // Slides back down out of view before unmounting
             transition={{ type: "spring", damping: 25, stiffness: 220 }} // Premium mobile spring physics
-            className={`fixed bottom-0  rounded ${roundedTop ? "rounded-t-3xl" : "rounded-none"} left-0 right-0 bg-white  z-50 shadow-2xl  md:hidden flex flex-col overflow-y-auto
-            `}
+            className={cn(
+              `fixed bottom-0  rounded $ left-0 right-0 bg-white  z-50 shadow-2xl   md:hidden flex flex-col overflow-y-auto
+            `,
+              roundedTop ? "rounded-t-3xl" : "rounded-none",
+              className,
+            )}
             style={{
               height: height,
             }}
