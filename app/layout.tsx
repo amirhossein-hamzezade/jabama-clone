@@ -18,6 +18,8 @@ const vazirFont = localFont({
     },
   ],
   variable: "--font-vazir",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {

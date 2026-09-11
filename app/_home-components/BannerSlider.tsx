@@ -6,6 +6,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 const SLIDES = [
   {
@@ -67,12 +68,13 @@ export default function BannerSlider({ className }: BannerSliderProps) {
               href={slide.link}
               className="block w-full aspect-[5/1.3] relative group"
             >
-              <img
+              <Image
                 src={slide.image}
                 alt={`Banner ${slide.id}`}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
+                fill
               />
             </a>
           </SwiperSlide>

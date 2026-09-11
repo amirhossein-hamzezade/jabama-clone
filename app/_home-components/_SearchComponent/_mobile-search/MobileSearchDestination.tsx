@@ -3,7 +3,7 @@ import React, { useContext, useRef } from "react";
 import mapPinIcon from "@/public/logo/mobileSearch/booking-search-pin.899c6c09.png";
 import { SearchContext } from "@/app/context/SearchContext";
 import { cn } from "@/lib/utils";
-import { MobileSearchInput } from "./MobileSearchInput";
+
 import {
   ChevronLeft,
   CircleX,
@@ -12,7 +12,6 @@ import {
   MoveUpRight,
   Search,
 } from "lucide-react";
-import { div } from "framer-motion/client";
 
 const MobileSearchDestination = () => {
   const { searchState, setSearchState } = useContext(SearchContext);
