@@ -39,7 +39,7 @@ const MobileSearchGustsCounter = () => {
                 { "bg-white text-sm text-black truncate": searchState.gusts },
               )}
             >
-              انتخاب نفرات
+              {searchState.gusts ? `${searchState.gusts} نفر` : "انتخاب نفرات"}
             </span>
           )}
         </button>

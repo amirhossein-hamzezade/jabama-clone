@@ -7,7 +7,7 @@ import MobileSearchDestination from "./MobileSearchDestination";
 import MobileSearchDatePicker from "./MobileSearchDatePicker";
 import { cn } from "@/lib/utils";
 import MobileSearchGustsCounter from "./MobileSearchGustsCounter";
-import { X } from "lucide-react";
+import { Trash2, X } from "lucide-react";
 
 type MobileSearchProps = {
   sheetOpen: boolean;
@@ -73,6 +73,15 @@ export const MobileSearch = ({
               <MobileSearchGustsCounter />
             </div>
           </main>
+          <footer className="w-full grid grid-cols-3  h-[80px] pb-[28px] gap-x-3 px-3 pt-3 rounded-lg">
+            <button className="flex justify-center items-center gap-2 bg-gray-200 py-2 rounded-lg">
+              <Trash2 width={20} height={20} />
+              پاک‌کردن
+            </button>
+            <button className="flex justify-center items-center col-start-2 col-end-4  bg-black text-white rounded-lg py-2">
+              جست‌و‌جو
+            </button>
+          </footer>
         </div>
       </BottomSheet>
     </>
