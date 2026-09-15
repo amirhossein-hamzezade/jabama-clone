@@ -39,7 +39,7 @@ To run this project locally, make sure you have [Node.js](https://nodejs.org) an
 1. **Clone & enter directory:**
 
    ```bash
-   git clone https://github.com
+   git clone https://github.com/amirhossein-hamzezade/jabama-clone.git
    cd jabama-clone
    ```
 
