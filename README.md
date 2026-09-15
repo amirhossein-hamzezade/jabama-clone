@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏡 Jabama Clone (جاباما)
 
-## Getting Started
+A responsive, full-stack clone of **Jabama**, the popular Iranian accommodation booking platform.
 
-First, run the development server:
+> 🚧 **Project Status: In Active Development**  
+> This project is currently a work in progress. The core UI/UX structure, the responsive search flows, and the localized calendar state are fully operational. I am actively working on rolling out backend integrations and user authentication next.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📂 Codebase Overview
+
+The structure follows clean, modular Next.js design patterns:
+
+```text
+├── app/
+│   ├── _home-components/       # Sections making up the homepage
+│   │   └── _SearchComponent/   # Search bars, drop-downs, and search context
+│   ├── chat/                   # User messaging layout (auth protected)
+│   ├── context/                # Global search provider (manages date range, guests, destination)
+│   ├── favorite/               # User bookmarked properties
+│   ├── profile/                # Identity management and profile settings
+│   ├── trips/                  # Active and historical reservations
+│   ├── globals.css             # Tailwind configuration & global CSS vars
+│   └── page.tsx                # Main home screen dashboard assembly
+├── components/
+│   ├── Calender/               # Pure custom Jalali engine grid and wrappers
+│   ├── Footer/                 # Segmented website footer with social maps
+│   └── AuthRequiredScreen.tsx  # Fallback roadblock screen for logged-out users
+├── data/                       # Mock data files for development
+└── lib/                        # Formatting utilities and shared tailwind hooks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Local Development Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To run this project locally, make sure you have [Node.js](https://nodejs.org) and [pnpm](https://pnpm.io) ready.
 
-## Learn More
+1. **Clone & enter directory:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com
+   cd jabama-clone
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   pnpm install
+   ```
 
-## Deploy on Vercel
+3. **Start the local dev server:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   pnpm dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Open the browser:**
+   Head to [http://localhost:3000](http://localhost:3000) to see it running live.
+
+---
+
+## 🚀 Next Steps (Roadmap)
+
+- [ ] **Implement Search & Filtering Functionality:** Build Backend Search Endpoints & Dynamic Filtering.
+- [ ] Integrate user authentication (OTP/SMS or passwordless entry layouts).
+- [ ] Connect a real backend database (PostgreSQL/Supabase) to replace local mock property arrays.
+- [ ] Embed an interactive map screen for searching listings visually.
+- [ ] Build a dedicated dashboard flow enabling hosts to create and modify their property posts.
